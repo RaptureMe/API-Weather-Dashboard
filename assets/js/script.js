@@ -1,10 +1,12 @@
 var apiKey = "70498a7525a378189dcd476cd02c3e10";
 var searchBtn = document.querySelector(".btn");
 var userInput = document.querySelector(".me-2");
+var searchHistory = [];
 
 function searchButtonClk(event) {
   event.preventDefault(); // Was having issues with page reloading, added Prevent
-  searchWeather(userInput.value); // Current day weather API, Adds user Input and API key on search
+  searchWeather(userInput.value);
+  saveLocal(userInput.value) // Current day weather API, Adds user Input and API key on search
 }
 
 function forecastWeather(lat, lon) {
@@ -57,5 +59,24 @@ function searchWeather(city) {
     });
 }
 
+function saveLocal(city) {
+  // save user input to local storage
+  searchHistory.push(city);
+  localStorage.setItem("searchHistory",JSON.stringify(searchHistory));
+}
+
+function getLocal() {
+  // get local storage
+  var parsedHistory = JSON.parse(localStorage.getItem("searchHistory"));
+  searchHistory = parsedHistory;
+}
+
+function displayHistory() {
+  for () //loop over search history
+  // create buttons from search history
+
+}
+
 searchWeather("Orange");
+getLocal();
 searchBtn.addEventListener("click", searchButtonClk);

@@ -3,6 +3,7 @@ var searchBtn = document.querySelector(".btn");
 var userInput = document.querySelector(".me-2");
 var searchHistory = [];
 
+// function on page load to input values on button click, moves data to other functions
 function searchButtonClk(event) {
   event.preventDefault(); // Was having issues with page reloading, added Prevent
   searchWeather(userInput.value);
@@ -71,11 +72,11 @@ function getLocal() {
   searchHistory = parsedHistory;
 }
 
-function displayHistory() {
-  for () //loop over search history
-  // create buttons from search history
+// function displayHistory() {
+//   for () //loop over search history
+//   create buttons from search history
 
-}
+// }
 
 searchWeather("Orange");
 getLocal();
